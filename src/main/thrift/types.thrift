@@ -180,7 +180,9 @@ enum EXAM_PASSING_PLACE {
      * on the item
      */
      9: optional string detailsUrl
-
+   
+    /** Omit this exam from list */ 
+    10: optional bool hidden
  }
 
 /** 
@@ -423,11 +425,16 @@ struct EnrollmentCommetee {
     5: optional string lang
 }
 
+/** If the given request with the  threshold value (e.g. 380) is passed for enrollment,
+     semipassed, or out of passing */
+enum ENROLL_LEVEL {THRESHOLD_PASSED, THRESHOLD_PARTIAL,THRESHOLD_OUT }
+
 struct RequestLineCellItem {
     /** Depends on a number of compared specialities, normally from 1 to 3 */
     1: i32 columnPosition
     2: string value
     3: optional string diff
+    4: optional ENROLL_LEVEL enrollLevel
 }
 
 struct RequestLineRowItem {
@@ -438,14 +445,12 @@ struct RequestLineRowItem {
     4: optional string lang
     5: optional string updatedTime
     6: optional list<RequestLineCellItem> diffs
-
 }
 
 struct RequestLine {
     1: list<string> specialitiesColumnIds
     2: list<RequestLineRowItem> rows
     3: optional list<string> specialitiesColumnNames
-
 }
 
 
