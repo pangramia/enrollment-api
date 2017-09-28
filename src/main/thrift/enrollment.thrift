@@ -112,9 +112,10 @@ service EnrollmentService extends pb303.PBService {
                                             1: string region,
                                             2: string campaign,
                                             3: string suite,
-                                            4: i32 page,
-                                            5: string lang,
-                                            6: string authToken)
+                                            4: i32 gradeTotal,
+                                            5: i32 page,
+                                            6: string lang,
+                                            7: string authToken)
                                                   throws (1: exceptions.PBServiceException ex1,
                                                           2: exceptions.PBUserException    ex2)
         /**
