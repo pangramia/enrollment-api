@@ -182,7 +182,7 @@ enum EXAM_PASSING_PLACE {
      9: optional string detailsUrl
    
     /** Omit this exam from list */ 
-    10: optional bool hidden
+    10: optional bool omitted
  }
 
 /** 
